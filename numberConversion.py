@@ -1,5 +1,3 @@
-#def hexList():
-hexListNumbers = [0,1,2,3,4,5,6,7,8,9]
 
 
 def startUpMenu():
@@ -34,21 +32,23 @@ def printConversionChoice():
 
 def hexdenary():
     printConversionChoice()
-    hexOption = int(input("Enter the first hex digit\n>>"))
-    hexOption2 = int(input("Enter the first hex digit\n>>"))
-    if hexOption and hexOption2 not in hexListNumbers:
-        hexdenary()
-
-    optionHexAnswer = (hexOption*16)+(hexOption2)
-    print(hexOption + hexOption2,"in denary is",optionHexAnswer)
-
-
 
 def hexbinary():
     printConversionChoice()
 
 def denaryhex():
     printConversionChoice()
+    d = int(input("Enter the number\n>>"))
+    digits = "0123456789ABCDEF"
+    if d <= 0:
+        return "0"
+    base = 16
+    hex = ""
+    while d >= 0:
+        digit = int(d%base)
+        hex = digits[digit]+hex
+        d = d/base
+    print(hex)
 
 def denarybinary():
     printConversionChoice()
