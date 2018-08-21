@@ -1,3 +1,7 @@
+#def hexList():
+hexListNumbers = [0,1,2,3,4,5,6,7,8,9]
+
+
 def startUpMenu():
     global conversionChoice1, conversionChoice2
 
@@ -30,6 +34,15 @@ def printConversionChoice():
 
 def hexdenary():
     printConversionChoice()
+    hexOption = int(input("Enter the first hex digit\n>>"))
+    hexOption2 = int(input("Enter the first hex digit\n>>"))
+    if hexOption and hexOption2 not in hexListNumbers:
+        hexdenary()
+
+    optionHexAnswer = (hexOption*16)+(hexOption2)
+    print(hexOption + hexOption2,"in denary is",optionHexAnswer)
+
+
 
 def hexbinary():
     printConversionChoice()
