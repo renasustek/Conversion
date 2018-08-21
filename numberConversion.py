@@ -1,5 +1,4 @@
 
-
 def startUpMenu():
     global conversionChoice1, conversionChoice2
 
@@ -36,22 +35,27 @@ def hexdenary():
 def hexbinary():
     printConversionChoice()
 
-def denaryhex():
-    printConversionChoice()
-    d = int(input("Enter the number\n>>"))
+def convertFromDenary(base, d):
     digits = "0123456789ABCDEF"
     if d <= 0:
         return "0"
-    base = 16
     hex = ""
-    while d >= 0:
+    while d >= 1:
         digit = int(d%base)
         hex = digits[digit]+hex
         d = d/base
-    print(hex)
+    return hex
+
+def denaryhex():
+    printConversionChoice()
+    d = int(input("Enter the number\n>>"))
+    print(convertFromDenary(16,d))
 
 def denarybinary():
     printConversionChoice()
+    d = int(input("Enter the number\n>>"))
+    print(convertFromDenary(2, d))
+
 
 def binarydenary():
     printConversionChoice()
