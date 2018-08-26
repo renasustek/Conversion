@@ -30,7 +30,17 @@ def printConversionChoice():
 
 
 def hexdenary():
+    A = 10
+    B = 11
+    C = 12
+    D = 13
+    E = 14
+    F = 15
     printConversionChoice()
+    digits = input("Enter your hex digit\n>>")
+    if len(digits) == 2:
+        answer = digits[0] * 16 + digits[1]
+        print(answer)
 
 def hexbinary():
     printConversionChoice()
@@ -59,6 +69,12 @@ def denarybinary():
 
 def binarydenary():
     printConversionChoice()
+    binary = input("enter a number: ")
+    decimal = 0
+    for digit in binary:
+        decimal = decimal * 2 + int(digit)
+    print(decimal)
+
 
 def binaryhex():
     printConversionChoice()
