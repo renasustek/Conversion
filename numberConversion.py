@@ -1,4 +1,3 @@
-
 def startUpMenu():
     global conversionChoice1, conversionChoice2
 
@@ -9,8 +8,12 @@ def startUpMenu():
     conversionChoice2 = input("Enter your conversion choice two\n>>")
     while conversionChoice2 != "hex" and conversionChoice2 != "denary" and conversionChoice2 != "binary":
         conversionChoice2 = input("Invalid option pick hex,denary or binary\n>>")
-
+    if conversionChoice1 == conversionChoice2:
+        print("Invalid, dont enter the same thing.")
+        startUpMenu()
     finalConversionChoice = conversionChoice1 + conversionChoice2
+
+    print("You want to convert", conversionChoice1, "to", conversionChoice2)
 
     if finalConversionChoice == "hexdenary":
         hexdenary()
@@ -25,18 +28,15 @@ def startUpMenu():
     elif finalConversionChoice == "binaryhex":
         binaryhex()
 
-def printConversionChoice():
-    print("You want to convert", conversionChoice1, "to", conversionChoice2)
-
 
 def hexdenary():
-    printConversionChoice()
-    binary = input("enter a number: ")
-    value = convertToDenary(16, binary)
+    hex = input("enter a number: ")
+    value = convertToDenary(16, hex)
     print(value)
 
+
 def hexbinary():
-    printConversionChoice()
+    pass
 
 def convertFromDenary(base, d):
     digits = "0123456789ABCDEF"
@@ -44,37 +44,50 @@ def convertFromDenary(base, d):
         return "0"
     value = ""
     while d >= 1:
-        digit = int(d%base)
-        value = digits[digit]+value
-        d = d/base
+        digit = int(d % base)
+        value = digits[digit] + value
+        d = d / base
     return value
+
 
 def convertToDenary(base, d):
     value = 0
     index = 0
     for digit in reversed(d):
-        value += (int(digit)*(base**index))
-        index+=1
+        if digit == "A":
+            digit = "10"
+        elif digit == "B":
+            digit = "11"
+        elif digit == "C":
+            digit = "12"
+        elif digit == "D":
+            digit = "13"
+        elif digit == "E":
+            digit = "14"
+        elif digit == "F":
+            digit = "15"
+        value += (int(digit) * (base ** index))
+        index += 1
     return value
 
+
 def denaryhex():
-    printConversionChoice()
     d = int(input("Enter the number\n>>"))
-    print(convertFromDenary(16,d))
+    print(convertFromDenary(16, d))
+
 
 def denarybinary():
-    printConversionChoice()
     d = int(input("Enter the number\n>>"))
     print(convertFromDenary(2, d))
 
 
 def binarydenary():
-    printConversionChoice()
     binary = input("enter a number: ")
-    value = convertToDenary(2,binary)
+    value = convertToDenary(2, binary)
     print(value)
 
+
 def binaryhex():
-    printConversionChoice()
+    pass
 
 startUpMenu()
