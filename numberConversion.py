@@ -36,7 +36,10 @@ def hexdenary():
 
 
 def hexbinary():
-    pass
+    hex = input("enter a number: ")
+    value = convertToDenary(16, hex)
+    print(convertFromDenary(2, value))
+
 
 def convertFromDenary(base, d):
     digits = "0123456789ABCDEF"
@@ -88,6 +91,9 @@ def binarydenary():
 
 
 def binaryhex():
-    pass
+    binary = input("enter a number: ")
+    value = convertToDenary(2, binary)
+    print(convertFromDenary(16, value))
+
 
 startUpMenu()
